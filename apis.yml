@@ -1,19 +1,68 @@
 aid: unwind
-name: unwind
-description: unwind is a company surfaced as a portfolio company of slow-ventures and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/unwind.png
+name: Unwind Me
+description: 'Unwind Me was a San Francisco on-demand massage startup ("Massage Made
+  Simple — straight to your door, when you want, at an affordable price") that let
+  customers book state-licensed, vetted massage therapists who arrived with a full
+  "Unwind Kit" (table, sheets, oils). Venture-backed with Slow Ventures among its
+  investors, it was acquired by rival on-demand massage platform Soothe — the transition
+  notice "Unwind Me is now part of Soothe" was live on unwind.me by December 2015,
+  with Soothe honoring outstanding customer credits. The company is defunct: unwind.me
+  is now a parked GoDaddy domain, and it operates no website, developer portal, or
+  public API surface today.'
 url: https://raw.githubusercontent.com/api-evangelist/unwind/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - slow-ventures
 x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier-reason: defunct-no-api-surface
+x-status: defunct
+x-defunct:
+  acquired_by: Soothe
+  acquired_date: '2015-12'
+  evidence: transition notice live on unwind.me by 2015-12-02 (Wayback Machine);
+    operating site still normal 2015-03; notice remained through 2016
+  successor: https://www.soothe.com
+x-probe:
+  date: '2026-07-21'
+  method: probed
+  findings:
+  - host: unwind.me
+    http_status: 200
+    note: GoDaddy parking lander (window.LANDER_SYSTEM="PW", lander_type=parkweb);
+      JS-redirects / to /lander
+  - host: unwind.me
+    path: /.well-known/security.txt and all other paths
+    http_status: 200
+    note: parked wildcard — every path (including a control path) returns 200 with
+      the parking lander, so no real /.well-known, /llms.txt, or docs surface exists;
+      do not harvest these 200s
+  conclusion: no operating website, no developer portal, no API, no real /.well-known
+    surface; company defunct since Soothe acquisition
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
+- Massage
+- Wellness
+- On-Demand Services
+- Consumer
+- Marketplace
+- Defunct
+- Acquired
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -21,5 +70,21 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/unwind-domain-security.yml
+- type: LLMsTxt
+  url: llms/unwind-llms.txt
 - type: Website
   url: https://unwind.me
+- type: WebArchive
+  name: Archived homepage (2015) — Unwind Me, High-Quality Affordable Massage in
+    San Francisco
+  url: https://web.archive.org/web/20150315012434/https://unwind.me/
+- type: WebArchive
+  name: Archived acquisition notice (2015-12-02) — Unwind Me is now part of Soothe
+  url: https://web.archive.org/web/20151202010019/http://unwind.me/
+x-enrichment:
+  date: '2026-07-21'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v1

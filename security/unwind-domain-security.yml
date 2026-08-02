@@ -1,0 +1,15 @@
+generated: '2026-07-21'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: unwind.me
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 16 13:52:30 2026 GMT
+  hsts: false
+domains:
+- domain: unwind.me
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false
