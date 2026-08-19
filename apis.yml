@@ -51,7 +51,7 @@ x-probe:
       do not harvest these 200s
   conclusion: no operating website, no developer portal, no API, no real /.well-known
     surface; company defunct since Soothe acquisition
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-21'
 tags:
